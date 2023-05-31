@@ -1,4 +1,4 @@
-import perfil from '../assets/perfil.jpg'
+import perfil from '../../assets/perfil.jpg'
 interface Prop {
   img: string
   title: string

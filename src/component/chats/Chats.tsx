@@ -20,12 +20,12 @@ const mock = [
   }
 ]
 export const Chats = () => {
-  console.log(mock[0].date.)
+  console.log(mock[0].date.getDate() - new Date().getDate())
   return (
     <div className='flex flex-col h-full overflow-scroll scrollbar-thin scrollbar-thumb-gray-300'>
         {
           mock.map((chat, index) => (
-            <Chat img={chat.img} message={chat.prevmessage} notification={chat.notification} title={chat.title} user={chat.user} key={index} time />
+            <Chat img={chat.img} message={chat.prevmessage} notification={chat.notification} title={chat.title} user={chat.user} key={index} time='11:00 AM' />
           ))
           }
     </div>
