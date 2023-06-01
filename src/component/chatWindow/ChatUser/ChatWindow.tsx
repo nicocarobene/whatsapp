@@ -1,4 +1,3 @@
-import { Emoji, Files, Microfone } from '../../icons/icons'
 import { BarInputUser } from './BarInputUser'
 import { ChatUsers } from './ChatUsers'
 import { NavCharUser } from './NavbarUser'

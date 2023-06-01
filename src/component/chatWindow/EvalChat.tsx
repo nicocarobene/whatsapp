@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { ChatDefaultLogo } from './chatDefaultIcon'
 import { ChatWindow } from './ChatUser/ChatWindow'
+import { useWhatsAppContext } from '../../store/store'
 
 export const EvalChat = () => {
-  const [userChat, setUserChat] = useState(true)
+  const { increment, initialValue } = useWhatsAppContext()
+  console.log(initialValue)
   return (
     <>
     {
-    userChat
+    initialValue
       ? <ChatWindow/>
       : <ChatDefaultLogo/>
     }

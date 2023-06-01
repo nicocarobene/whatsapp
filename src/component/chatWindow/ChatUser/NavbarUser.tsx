@@ -1,11 +1,11 @@
 import { Nav, Search } from '../../icons/icons'
 import perfil from '../../../assets/perfil.jpg'
-import { Menu } from '../../MenuResponsive/Menu'
+import { Menu } from '../../MenuResponsive.tsx/Menu'
 import { useState } from 'react'
 export const NavCharUser = ({
   userPicture = perfil,
   userFriend = 'Nicolas Carobene'
-}: { userPicture: string, userFriend: string }) => {
+}: { userPicture?: string, userFriend?: string }) => {
   const [visibiliti, setVisibiliti] = useState(true)
   return (
     <div className="flex justify-between bg-gray-100 py-3 px-4 border-l-[1px] border-gray-300">

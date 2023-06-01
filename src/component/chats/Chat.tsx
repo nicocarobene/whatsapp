@@ -1,4 +1,5 @@
 import perfil from '../../assets/perfil.jpg'
+import { useWhatsAppContext } from '../../store/store'
 interface Prop {
   img: string
   title: string
@@ -8,8 +9,12 @@ interface Prop {
   notification: number
 }
 export const Chat = ({ img = perfil, title = 'Nombre de Grupo', time = '11:19 A.M.', user = 'Cami', message = 'parte de mensaje', notification }: Prop) => {
+  const { increment } = useWhatsAppContext()
+  const handleClick = () => {
+    increment()
+  }
   return (
-    <button className='w-full hover:bg-gray-200'>
+    <button onClick={handleClick} className='w-full hover:bg-gray-200'>
       <div className="flex items-center px-3 gap-3">
         <picture>
           <img className="w-14 rounded-full" src={img} />

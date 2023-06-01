@@ -1,7 +1,7 @@
 import perfil from '../assets/perfil.jpg'
 import { useState } from 'react'
 import { Nav, NewMessage } from './icons/icons'
-import { Menu } from './MenuResponsive/Menu'
+import { Menu } from './MenuResponsive.tsx/Menu'
 
 export default function Navbar () {
   const [navbar, setNav] = useState(true)
