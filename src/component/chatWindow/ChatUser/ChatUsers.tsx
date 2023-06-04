@@ -1,138 +1,33 @@
+import { useWhatsAppContext } from '../../../store/store'
+import { type Chat } from '../../../types'
 import { MessageFriend, MessageUser } from '../../icons/icons'
+interface Prop {
+  chat: Chat[]
+}
+// {0 :
+//   date : "2023-06-03T12:23:50.601Z"
+//   id : "647b30d5fd0c1e5556ce8220"
+//   message:  "integrando DB con WS2"
+//   name: "Nicolas Carobene"
+//   username : "Nico97"
+//   1 :
+//   date:"2023-06-03T12:23:58.972Z"
+//   id: "647b30defd0c1e5556ce8226"
+//   message: "integrando DB con WS2"
+//   name:"Nicolas Carobene"
+//   username: "Nico97"
 
-const mock = [
-  {
-    user: 'Nico',
-    message: 'hola, como estas?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'hola, todo bien y vos?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'cansado de estudiar?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'o has podido descansar esta semana?',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'Si, he podido descansar gracias a dios jajaja',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'He tenido examenes la semana pasada y ahora estoy de vaciones',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'Estoy tranqui ahora',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'que bueno, me alegro entonces!!',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'y vos como venis con la facu?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'con la facu bien por suerte',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'todavia no comenzamos los examenes',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'calculo que la semana que viene empezaremos a ver las fechas',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'hola, como estas?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'hola, todo bien y vos?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'hola, cansado de estudiar?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'o has podido descansar esta semana?',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'Si, he podido descansar gracias a dios jajaja',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'He tenido examenes la semana pasada y ahora estoy de vaciones',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'Estoy tranqui ahora',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'que bueno, me alegro entonces!!',
-    time: new Date()
-  },
-  {
-    user: 'Nico',
-    message: 'y vos como venis con la facu?',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'con la facu bien por suerte',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'todavia no comenzamos los examenes',
-    time: new Date()
-  },
-  {
-    user: 'Martin',
-    message: 'calculo que la semana que viene empezaremos a ver las fechas',
-    time: new Date()
-  }
-]
-
-export const ChatUsers = () => {
+export const ChatUsers = ({ chat }: Prop) => {
+  const { User } = useWhatsAppContext()
+  const { name } = User
   return (
     <div className="flex flex-col bg-[url('assets/fondoWsp.png')] h-full overflow-scroll scrollbar-thin scrollbar-thumb-gray-300 gap-1 px-2 overflow-x-hidden py-3">
-      {mock.map((item, index) => {
-        let pestaña = false
-        if (index !== 0 && mock[index - 1].user !== item.user) {
+      {chat.map((item, index) => {
+        let pestaña = index === 0
+        if (index !== 0 && chat[index - 1].name !== item.name) {
           pestaña = true
         }
-        const user1 = 'Nico'
-        const isUser = item.user === user1
+        const isUser = item.username === name
         return (
           <div key={index} className={`${isUser ? 'text-right' : 'text-left'} relative `}>
             <div className={`absolute ${isUser ? 'right-0' : 'left-0'}`}>
@@ -141,9 +36,10 @@ export const ChatUsers = () => {
             </div>
             <div
               className={`${
-                isUser ? 'bg-[#d9fdd3] rounded-tr-none' : 'bg-white rounded-tl-none'
-              } text-[#535a5f] inline-block rounded-lg py-2 px-2 mx-2 text-sm`}
-            >
+                isUser
+                  ? 'bg-[#d9fdd3] rounded-tr-none'
+                  : 'bg-white rounded-tl-none'
+              } text-[#535a5f] inline-block rounded-lg py-2 px-2 mx-2 text-sm`}>
               <p>{item.message}</p>
             </div>
           </div>

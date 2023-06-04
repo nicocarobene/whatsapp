@@ -19,53 +19,54 @@ export const NavCharUser = ({
         <button>
           <Search />
         </button>
-        <button onClick={() => { setVisibiliti(!visibiliti) }} className="group relative active:bg-gray-300 rounded-full p-2">
+        <button onBlur={() => { if (!visibiliti)setVisibiliti(!visibiliti) }}
+        onClick={() => { setVisibiliti(!visibiliti) }} className="group relative active:bg-gray-300 rounded-full p-2">
           <Nav />
           <Menu navbar={visibiliti} right='right-0' top='top-10'>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Info. del contacto">
+              <div className='hover:bg-gray-100' role="button" aria-label="Info. del contacto">
                 Info. del contacto
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Seleccionar mensajes">
+              <div className='hover:bg-gray-100' role="button" aria-label="Seleccionar mensajes">
                 Seleccionar mensajes
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Cerrar chat">
+              <div className='hover:bg-gray-100' role="button" aria-label="Cerrar chat">
                 Cerrar chat
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Silenciar notificaciones">
+              <div className='hover:bg-gray-100' role="button" aria-label="Silenciar notificaciones">
                 Silenciar notificaciones
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Mensajes temporales">
+              <div className='hover:bg-gray-100' role="button" aria-label="Mensajes temporales">
                 Mensajes temporales
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Vaciar mensajes">
+              <div className='hover:bg-gray-100' role="button" aria-label="Vaciar mensajes">
                 Vaciar mensajes
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Eliminar chat">
+              <div className='hover:bg-gray-100' role="button" aria-label="Eliminar chat">
                 Eliminar chat
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Reportar">
+              <div className='hover:bg-gray-100' role="button" aria-label="Reportar">
                 Reportar
-              </button>
+              </div>
             </li>
             <li>
-              <button className='hover:bg-gray-100' role="button" aria-label="Bloquear">
+              <div className='hover:bg-gray-100' role="button" aria-label="Bloquear">
                 Bloquear
-              </button>
+              </div>
             </li>
           </Menu>
         </button>

@@ -1,28 +1,27 @@
 import { AddDocument, AddFile, Contact, TakePicture } from '../../icons/icons'
 
 export const AddFiles = ({ styles, ...prop }: { styles: React.CSSProperties, className: string }) => {
-  console.log(prop)
   return (
     <ul {...prop} style={styles}>
       <li>
-        <button>
+        <div role='button'>
           <Contact />
-        </button>
+        </div>
       </li>
       <li>
-        <button>
+        <div role='button'>
           <AddDocument />
-        </button>
+        </div>
       </li>
       <li>
-        <button>
+        <div role='button'>
           <TakePicture />
-        </button>
+        </div>
       </li>
       <li>
-        <button>
+        <div role='button'>
           <AddFile />
-        </button>
+        </div>
       </li>
     </ul>
   )

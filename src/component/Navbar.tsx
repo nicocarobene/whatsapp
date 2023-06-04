@@ -24,6 +24,9 @@ export default function Navbar () {
             onClick={() => {
               setNav(!navbar)
             }}
+            onBlur={() => {
+              if (!navbar) { setNav(!navbar) }
+            }}
           >
             <Nav />
           </button>
@@ -31,22 +34,22 @@ export default function Navbar () {
       </nav>
       <Menu navbar={navbar} right='right-10' top='top-14'>
         <li className="hover:bg-gray-100">
-          <button>Nuevo grupo</button>
+          <div role='button' aria-label='Nuevo'>Nuevo grupo</div>
         </li>
         <li className="hover:bg-gray-100">
-          <button>Perfil</button>
+          <div role='button' aria-label='Perfil'>Perfil</div>
         </li>
         <li className="hover:bg-gray-100">
-          <button>Mensajes destacados</button>
+          <div role='button' aria-label='Mensajes destacados'>Mensajes destacados</div>
         </li>
         <li className="hover:bg-gray-100">
-          <button>Etiquetas</button>
+          <div role='button' aria-label='Etiquetas'>Etiquetas</div>
         </li>
         <li className="hover:bg-gray-100">
-          <button>Configuración</button>
+          <div role='button' aria-label='Configuración'>Configuración</div>
         </li>
         <li className="hover:bg-gray-100">
-          <button>Cerrar sesión</button>
+          <div role='button' aria-label='Cerrar sesión'>Cerrar sesión</div>
         </li>
       </Menu>
     </header>
