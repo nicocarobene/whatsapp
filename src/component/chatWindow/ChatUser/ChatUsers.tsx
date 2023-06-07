@@ -4,18 +4,12 @@ import { MessageFriend, MessageUser } from '../../icons/icons'
 interface Prop {
   chat: Chat[]
 }
-// {0 :
+// mock 0 :
 //   date : "2023-06-03T12:23:50.601Z"
 //   id : "647b30d5fd0c1e5556ce8220"
 //   message:  "integrando DB con WS2"
 //   name: "Nicolas Carobene"
 //   username : "Nico97"
-//   1 :
-//   date:"2023-06-03T12:23:58.972Z"
-//   id: "647b30defd0c1e5556ce8226"
-//   message: "integrando DB con WS2"
-//   name:"Nicolas Carobene"
-//   username: "Nico97"
 
 export const ChatUsers = ({ chat }: Prop) => {
   const { User } = useWhatsAppContext()
@@ -24,7 +18,7 @@ export const ChatUsers = ({ chat }: Prop) => {
     <div className="flex flex-col bg-[url('assets/fondoWsp.png')] h-full overflow-scroll scrollbar-thin scrollbar-thumb-gray-300 gap-1 px-2 overflow-x-hidden py-3">
       {chat.map((item, index) => {
         let pestaña = index === 0
-        if (index !== 0 && chat[index - 1].name !== item.name) {
+        if ( !pestaña && chat[index - 1].name !== item.username) {
           pestaña = true
         }
         const isUser = item.username === name

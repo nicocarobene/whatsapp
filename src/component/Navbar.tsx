@@ -5,6 +5,10 @@ import { Menu } from './MenuResponsive.tsx/Menu'
 
 export default function Navbar () {
   const [navbar, setNav] = useState(true)
+  const handleClick = () => {
+    window.localStorage.removeItem('user__wp')
+    console.log('hola')
+  }
   return (
     <header className="bg-gray-100 py-3 px-4 relative">
       <nav className="flex justify-between text-center">
@@ -49,7 +53,7 @@ export default function Navbar () {
           <div role='button' aria-label='Configuración'>Configuración</div>
         </li>
         <li className="hover:bg-gray-100">
-          <div role='button' aria-label='Cerrar sesión'>Cerrar sesión</div>
+          <div role='button' onClick={handleClick} aria-label='Cerrar sesión'>Cerrar sesión</div>
         </li>
       </Menu>
     </header>

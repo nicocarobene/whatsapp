@@ -42,9 +42,10 @@ export interface WhatsAppStore {
   setUser: (user: User) => void
   setListChats: (chats: ListChat[]) => void
   setChat: (chat: Chat[]) => void
+  SetLiveChat: (newMessage: Chat )=> void
 }
 
-export const useWhatsAppContext = create<WhatsAppStore>((set) => ({
+export const useWhatsAppContext = create<WhatsAppStore>((set, get) => ({
   User: initialValue,
   ListChats: mock,
   Chat: [],
@@ -56,6 +57,10 @@ export const useWhatsAppContext = create<WhatsAppStore>((set) => ({
   },
   setChat: (chat) => {
     set({ Chat: chat })
+  },
+  SetLiveChat: ( newMessage )=>{
+    const Store= get().Chat
+    set({Chat: [...Store, newMessage]})
   }
 }))
 export type { User }
